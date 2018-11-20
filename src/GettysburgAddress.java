@@ -12,14 +12,28 @@ public class GettysburgAddress
 {
 			public static void main(String[] args) throws FileNotFoundException
 			{
-				String filename;
-				Scanner file = new Scanner(new File("Gettysburg Address.txt"));
-				//assume filename stres the name of the file
+				Scanner file = new Scanner(new File("GettysburgAddress.txt"));
+				//assume filename stores the name of the file
+				ArrayList<String> words = new ArrayList<String>();
 				while (file.hasNext())
 				{
-				ArrayList<String> words = new ArrayList<String>();
-				
+					words.add(file.next());
 				}
-				for(
+				String longestWord = words.get(0);
+				for(String fileA : words)
+				{
+					if(longestWord.length() < fileA.length())
+					{
+						longestWord = fileA;
+					}
+				}
+				System.out.println("The longest word of the Gettysburg Address is " + longestWord + " .");
+				
+			double sum = 0;
+			for(String fileA : words)
+			{
+				sum+= fileA.length();
 			}
-}
+			System.out.println("The average word length of the Gettysburg Address is " + sum/words.size() + " letters");
+			}
+			}
